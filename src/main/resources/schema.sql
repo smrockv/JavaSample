@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS area (
+    id INT DEFAULT 0 NOT NULL AUTO_INCREMENT,
+    name VARCHAR(128),
+    PRIMARY KEY (id)
+);
+CREATE TABLE IF NOT EXISTS customer (
+    id INT DEFAULT 0 NOT NULL AUTO_INCREMENT,
+    name VARCHAR(128),
+    area_id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (area_id) REFERENCES area(id)
+);
