@@ -5,4 +5,4 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 COPY --from=build /target/JavaSample-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/demo.jar","-Dspring.config.location", " /etc/secrets/application.properties"]
+ENTRYPOINT ["java","-jar","/demo.jar","-cp", ".:/etc/secrets/application.properties"]
